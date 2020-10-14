@@ -93,8 +93,6 @@ def analyze_pcap(packets):
 while True:
     file_name = input("Názov čítaného súboru (s príponou): ")
 
-    file_exists = True
-
     try:
         my_packets = rdpcap(file_name)
     except IOError:
