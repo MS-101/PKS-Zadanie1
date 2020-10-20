@@ -1,0 +1,760 @@
+Komunikácia č. 1 - úspešná
+
+rámec 80
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5002
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 2c ab 73 40 00 38 06 d2 d1 93 af 6f 0e c0 a8
+01 21 00 14 13 8a f3 81 9c 7e 00 00 00 00 60 02
+40 00 f0 50 00 00 02 04 05 64 00 00
+
+rámec 81
+dĺžka rámca poskytnutá pcap API - 58 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5002
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 2c 15 df 40 00 80 06 20 66 c0 a8 01 21 93 af
+6f 0e 13 8a 00 14 3d ce e6 6b f3 81 9c 7f 60 12
+ff ff 0b b6 00 00 02 04 05 b4
+
+rámec 82
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5002
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 28 ab 74 40 00 38 06 d2 d4 93 af 6f 0e c0 a8
+01 21 00 14 13 8a f3 81 9c 7f 3d ce e6 6c 50 10
+40 b0 e2 c2 00 00 00 00 00 00 00 00
+
+rámec 84
+dĺžka rámca poskytnutá pcap API - 96 B
+dĺžka rámca poskytnutá po médiu - 100 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5002
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 52 ab 77 40 00 38 06 d2 a7 93 af 6f 0e c0 a8
+01 21 00 14 13 8a f3 81 9c 7f 3d ce e6 6c 50 19
+40 b0 48 ba 00 00 77 65 6c 63 6f 6d 65 2e 6d 73
+67 0d 0a 70 75 62 0d 0a 48 45 41 44 45 52 2e 74
+78 74 0d 0a 72 6f 62 6f 74 73 2e 74 78 74 0d 0a
+
+rámec 85
+dĺžka rámca poskytnutá pcap API - 54 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5002
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 28 15 e1 40 00 80 06 20 68 c0 a8 01 21 93 af
+6f 0e 13 8a 00 14 3d ce e6 6c f3 81 9c aa 50 10
+ff d5 23 72 00 00
+
+rámec 88
+dĺžka rámca poskytnutá pcap API - 54 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5002
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 28 15 e5 40 00 80 06 20 64 c0 a8 01 21 93 af
+6f 0e 13 8a 00 14 3d ce e6 6c f3 81 9c aa 50 11
+ff d5 23 71 00 00
+
+rámec 89
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5002
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 28 ab 79 40 00 38 06 d2 cf 93 af 6f 0e c0 a8
+01 21 00 14 13 8a f3 81 9c aa 3d ce e6 6d 50 10
+40 b0 e2 96 00 00 00 00 00 00 00 00
+
+rámec 93
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5003
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 2c ab 82 40 00 38 06 d2 c2 93 af 6f 0e c0 a8
+01 21 00 14 13 8b f3 9c 62 97 00 00 00 00 60 02
+40 00 2a 1c 00 00 02 04 05 64 00 00
+
+rámec 94
+dĺžka rámca poskytnutá pcap API - 58 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5003
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 2c 15 ed 40 00 80 06 20 58 c0 a8 01 21 93 af
+6f 0e 13 8b 00 14 2c 37 04 3e f3 9c 62 98 60 12
+ff ff 39 46 00 00 02 04 05 b4
+
+rámec 95
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5003
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 28 ab 83 40 00 38 06 d2 c5 93 af 6f 0e c0 a8
+01 21 00 14 13 8b f3 9c 62 98 2c 37 04 3f 50 10
+40 b0 10 53 00 00 00 00 00 00 00 00
+
+rámec 98
+dĺžka rámca poskytnutá pcap API - 54 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5003
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 28 15 ef 40 00 80 06 20 5a c0 a8 01 21 93 af
+6f 0e 13 8b 00 14 2c 37 04 3f f3 9c 63 9f 50 10
+fe f9 51 02 00 00
+
+rámec 101
+dĺžka rámca poskytnutá pcap API - 54 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5003
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 28 15 f3 40 00 80 06 20 56 c0 a8 01 21 93 af
+6f 0e 13 8b 00 14 2c 37 04 3f f3 9c 63 9f 50 11
+fe f9 51 01 00 00
+
+rámec 102
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5003
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 28 ab 88 40 00 38 06 d2 c0 93 af 6f 0e c0 a8
+01 21 00 14 13 8b f3 9c 63 9f 2c 37 04 40 50 10
+40 b0 0f 4b 00 00 00 00 00 00 00 00
+
+rámec 114
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5004
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 2c ae e1 40 00 38 06 cf 63 93 af 6f 0e c0 a8
+01 21 00 14 13 8c f4 88 a7 05 00 00 00 00 60 02
+40 00 e4 c0 00 00 02 04 05 64 00 00
+
+rámec 115
+dĺžka rámca poskytnutá pcap API - 58 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5004
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 2c 16 07 40 00 80 06 20 3e c0 a8 01 21 93 af
+6f 0e 13 8c 00 14 a6 31 bb 00 f4 88 a7 06 60 12
+ff ff c3 2d 00 00 02 04 05 b4
+
+rámec 116
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5004
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 28 ae e2 40 00 38 06 cf 66 93 af 6f 0e c0 a8
+01 21 00 14 13 8c f4 88 a7 06 a6 31 bb 01 50 10
+40 b0 9a 3a 00 00 00 00 00 00 00 00
+
+rámec 118
+dĺžka rámca poskytnutá pcap API - 316 B
+dĺžka rámca poskytnutá po médiu - 320 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5004
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+01 2e ae e5 40 00 38 06 ce 5d 93 af 6f 0e c0 a8
+01 21 00 14 13 8c f4 88 a7 06 a6 31 bb 01 50 19
+40 b0 a5 4f 00 00 2d 72 77 2d 72 77 2d 72 2d 2d
+20 20 20 31 20 72 6f 6f 74 20 20 20 20 20 73 61
+63 20 20 20 20 20 20 20 20 20 20 31 32 30 34 20
+4a 75 6e 20 31 31 20 20 32 30 30 31 20 48 45 41
+44 45 52 2e 74 78 74 0d 0a 64 72 77 78 72 2d 78
+72 2d 78 20 20 20 34 20 72 6f 6f 74 20 20 20 20
+20 77 68 65 65 6c 20 20 20 20 20 20 20 20 20 35
+31 32 20 4f 63 74 20 31 32 20 20 32 30 30 32 20
+70 75 62 0d 0a 2d 72 77 2d 72 2d 2d 72 2d 2d 20
+20 20 31 20 72 6f 6f 74 20 20 20 20 20 77 68 65
+65 6c 20 20 20 20 20 20 20 20 20 20 32 36 20 4a
+75 6e 20 31 31 20 20 32 30 30 31 20 72 6f 62 6f
+74 73 2e 74 78 74 0d 0a 2d 72 77 2d 72 77 2d 72
+2d 2d 20 20 20 31 20 72 6f 6f 74 20 20 20 20 20
+73 61 63 20 20 20 20 20 20 20 20 20 20 31 33 30
+35 20 4d 61 72 20 32 30 20 20 32 30 30 31 20 77
+65 6c 63 6f 6d 65 2e 6d 73 67 0d 0a
+
+rámec 119
+dĺžka rámca poskytnutá pcap API - 54 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5004
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 28 16 09 40 00 80 06 20 40 c0 a8 01 21 93 af
+6f 0e 13 8c 00 14 a6 31 bb 01 f4 88 a8 0d 50 10
+fe f9 da e9 00 00
+
+rámec 122
+dĺžka rámca poskytnutá pcap API - 54 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5004
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 28 16 0d 40 00 80 06 20 3c c0 a8 01 21 93 af
+6f 0e 13 8c 00 14 a6 31 bb 01 f4 88 a8 0d 50 11
+fe f9 da e8 00 00
+
+rámec 123
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5004
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 28 ae e7 40 00 38 06 cf 61 93 af 6f 0e c0 a8
+01 21 00 14 13 8c f4 88 a8 0d a6 31 bb 02 50 10
+40 b0 99 32 00 00 00 00 00 00 00 00
+
+Komunikácia č. 2 - neúspešná
+
+rámec 80
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5002
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 2c ab 73 40 00 38 06 d2 d1 93 af 6f 0e c0 a8
+01 21 00 14 13 8a f3 81 9c 7e 00 00 00 00 60 02
+40 00 f0 50 00 00 02 04 05 64 00 00
+
+rámec 81
+dĺžka rámca poskytnutá pcap API - 58 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5002
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 2c 15 df 40 00 80 06 20 66 c0 a8 01 21 93 af
+6f 0e 13 8a 00 14 3d ce e6 6b f3 81 9c 7f 60 12
+ff ff 0b b6 00 00 02 04 05 b4
+
+rámec 82
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5002
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 28 ab 74 40 00 38 06 d2 d4 93 af 6f 0e c0 a8
+01 21 00 14 13 8a f3 81 9c 7f 3d ce e6 6c 50 10
+40 b0 e2 c2 00 00 00 00 00 00 00 00
+
+rámec 84
+dĺžka rámca poskytnutá pcap API - 96 B
+dĺžka rámca poskytnutá po médiu - 100 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5002
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 52 ab 77 40 00 38 06 d2 a7 93 af 6f 0e c0 a8
+01 21 00 14 13 8a f3 81 9c 7f 3d ce e6 6c 50 19
+40 b0 48 ba 00 00 77 65 6c 63 6f 6d 65 2e 6d 73
+67 0d 0a 70 75 62 0d 0a 48 45 41 44 45 52 2e 74
+78 74 0d 0a 72 6f 62 6f 74 73 2e 74 78 74 0d 0a
+
+rámec 85
+dĺžka rámca poskytnutá pcap API - 54 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5002
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 28 15 e1 40 00 80 06 20 68 c0 a8 01 21 93 af
+6f 0e 13 8a 00 14 3d ce e6 6c f3 81 9c aa 50 10
+ff d5 23 72 00 00
+
+rámec 88
+dĺžka rámca poskytnutá pcap API - 54 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5002
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 28 15 e5 40 00 80 06 20 64 c0 a8 01 21 93 af
+6f 0e 13 8a 00 14 3d ce e6 6c f3 81 9c aa 50 11
+ff d5 23 71 00 00
+
+rámec 89
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5002
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 28 ab 79 40 00 38 06 d2 cf 93 af 6f 0e c0 a8
+01 21 00 14 13 8a f3 81 9c aa 3d ce e6 6d 50 10
+40 b0 e2 96 00 00 00 00 00 00 00 00
+
+rámec 93
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5003
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 2c ab 82 40 00 38 06 d2 c2 93 af 6f 0e c0 a8
+01 21 00 14 13 8b f3 9c 62 97 00 00 00 00 60 02
+40 00 2a 1c 00 00 02 04 05 64 00 00
+
+rámec 94
+dĺžka rámca poskytnutá pcap API - 58 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5003
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 2c 15 ed 40 00 80 06 20 58 c0 a8 01 21 93 af
+6f 0e 13 8b 00 14 2c 37 04 3e f3 9c 62 98 60 12
+ff ff 39 46 00 00 02 04 05 b4
+
+rámec 95
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5003
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 28 ab 83 40 00 38 06 d2 c5 93 af 6f 0e c0 a8
+01 21 00 14 13 8b f3 9c 62 98 2c 37 04 3f 50 10
+40 b0 10 53 00 00 00 00 00 00 00 00
+
+rámec 98
+dĺžka rámca poskytnutá pcap API - 54 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5003
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 28 15 ef 40 00 80 06 20 5a c0 a8 01 21 93 af
+6f 0e 13 8b 00 14 2c 37 04 3f f3 9c 63 9f 50 10
+fe f9 51 02 00 00
+
+rámec 101
+dĺžka rámca poskytnutá pcap API - 54 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5003
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 28 15 f3 40 00 80 06 20 56 c0 a8 01 21 93 af
+6f 0e 13 8b 00 14 2c 37 04 3f f3 9c 63 9f 50 11
+fe f9 51 01 00 00
+
+rámec 102
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5003
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 28 ab 88 40 00 38 06 d2 c0 93 af 6f 0e c0 a8
+01 21 00 14 13 8b f3 9c 63 9f 2c 37 04 40 50 10
+40 b0 0f 4b 00 00 00 00 00 00 00 00
+
+rámec 114
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5004
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 2c ae e1 40 00 38 06 cf 63 93 af 6f 0e c0 a8
+01 21 00 14 13 8c f4 88 a7 05 00 00 00 00 60 02
+40 00 e4 c0 00 00 02 04 05 64 00 00
+
+rámec 115
+dĺžka rámca poskytnutá pcap API - 58 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5004
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 2c 16 07 40 00 80 06 20 3e c0 a8 01 21 93 af
+6f 0e 13 8c 00 14 a6 31 bb 00 f4 88 a7 06 60 12
+ff ff c3 2d 00 00 02 04 05 b4
+
+rámec 116
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5004
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 28 ae e2 40 00 38 06 cf 66 93 af 6f 0e c0 a8
+01 21 00 14 13 8c f4 88 a7 06 a6 31 bb 01 50 10
+40 b0 9a 3a 00 00 00 00 00 00 00 00
+
+rámec 118
+dĺžka rámca poskytnutá pcap API - 316 B
+dĺžka rámca poskytnutá po médiu - 320 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5004
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+01 2e ae e5 40 00 38 06 ce 5d 93 af 6f 0e c0 a8
+01 21 00 14 13 8c f4 88 a7 06 a6 31 bb 01 50 19
+40 b0 a5 4f 00 00 2d 72 77 2d 72 77 2d 72 2d 2d
+20 20 20 31 20 72 6f 6f 74 20 20 20 20 20 73 61
+63 20 20 20 20 20 20 20 20 20 20 31 32 30 34 20
+4a 75 6e 20 31 31 20 20 32 30 30 31 20 48 45 41
+44 45 52 2e 74 78 74 0d 0a 64 72 77 78 72 2d 78
+72 2d 78 20 20 20 34 20 72 6f 6f 74 20 20 20 20
+20 77 68 65 65 6c 20 20 20 20 20 20 20 20 20 35
+31 32 20 4f 63 74 20 31 32 20 20 32 30 30 32 20
+70 75 62 0d 0a 2d 72 77 2d 72 2d 2d 72 2d 2d 20
+20 20 31 20 72 6f 6f 74 20 20 20 20 20 77 68 65
+65 6c 20 20 20 20 20 20 20 20 20 20 32 36 20 4a
+75 6e 20 31 31 20 20 32 30 30 31 20 72 6f 62 6f
+74 73 2e 74 78 74 0d 0a 2d 72 77 2d 72 77 2d 72
+2d 2d 20 20 20 31 20 72 6f 6f 74 20 20 20 20 20
+73 61 63 20 20 20 20 20 20 20 20 20 20 31 33 30
+35 20 4d 61 72 20 32 30 20 20 32 30 30 31 20 77
+65 6c 63 6f 6d 65 2e 6d 73 67 0d 0a
+
+rámec 119
+dĺžka rámca poskytnutá pcap API - 54 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5004
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 28 16 09 40 00 80 06 20 40 c0 a8 01 21 93 af
+6f 0e 13 8c 00 14 a6 31 bb 01 f4 88 a8 0d 50 10
+fe f9 da e9 00 00
+
+rámec 122
+dĺžka rámca poskytnutá pcap API - 54 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+IPv4
+zdrojová IP adresa: 192.168.1.33
+cieľová IP adresa: 147.175.111.14
+TCP
+ftp-data
+zdrojový port: 5004
+cieľový port: 20
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 00 45 00
+00 28 16 0d 40 00 80 06 20 3c c0 a8 01 21 93 af
+6f 0e 13 8c 00 14 a6 31 bb 01 f4 88 a8 0d 50 11
+fe f9 da e8 00 00
+
+rámec 123
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+IPv4
+zdrojová IP adresa: 147.175.111.14
+cieľová IP adresa: 192.168.1.33
+TCP
+ftp-data
+zdrojový port: 20
+cieľový port: 5004
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 00 45 00
+00 28 ae e7 40 00 38 06 cf 61 93 af 6f 0e c0 a8
+01 21 00 14 13 8c f4 88 a8 0d a6 31 bb 02 50 10
+40 b0 99 32 00 00 00 00 00 00 00 00
+
