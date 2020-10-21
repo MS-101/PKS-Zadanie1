@@ -547,6 +547,14 @@ def output_standard(output_file_name, packets_info, dst_ip_dict):
         if packet_info.transport_protocol is not None:
             output_file.write(packet_info.transport_protocol.name + "\n")
 
+        if packet_info.application_protocol is not None:
+            output_file.write(packet_info.application_protocol.name + "\n")
+
+        if packet_info.transport_protocol is not None:
+            if isinstance(packet_info.transport_protocol, TCP) or isinstance(packet_info.transport_protocol, UDP):
+                output_file.write("zdrojový port: " + str(packet_info.transport_protocol.src_port) + "\n")
+                output_file.write("cieľový port: " + str(packet_info.transport_protocol.dst_port) + "\n")
+
         packet_frame = transform_frame(packet_info.frame)
         for bytes_string in packet_frame:
             output_file.write(bytes_string + "\n")
@@ -578,6 +586,8 @@ def analyze_packet(packet_hex, packet_index):
     # BASIC PACKET INFO
 
     packet_info = PacketInfo(packet_index)
+
+    packet_info.frame = packet_hex
 
     packet_info.length = int(len(packet_hex) / 2)
     packet_info.real_length = packet_info.length + 4
@@ -723,8 +733,6 @@ def analyze_packet(packet_hex, packet_index):
             packet_info.transport_protocol = ICMP(type_str)
         else:
             packet_info.transport_protocol = TransportProtocol(transport_protocol)
-
-    packet_info.frame = packet_hex
 
     return packet_info
 
