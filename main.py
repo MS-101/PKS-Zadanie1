@@ -80,48 +80,36 @@ def identify_hex(my_hex, hex_identification_file_name):
     return my_hex_identified
 
 
-def get_src_ip_hex(packet_hex):
+def ipv4_get_src_ip_hex(packet_hex):
     return packet_hex[24:32]
 
 
-def get_dst_ip_hex(packet_hex):
+def ipv4_get_dst_ip_hex(packet_hex):
     return packet_hex[32:40]
 
 
-def ipv4_get_src_ip(packet_hex):
-    src_ip_hex = get_src_ip_hex(packet_hex)
-
-    src_ip_hex1 = src_ip_hex[0:2]
-    src_ip_hex2 = src_ip_hex[2:4]
-    src_ip_hex3 = src_ip_hex[4:6]
-    src_ip_hex4 = src_ip_hex[6:8]
-
-    src_ip_dec1 = hex_to_dec(src_ip_hex1)
-    src_ip_dec2 = hex_to_dec(src_ip_hex2)
-    src_ip_dec3 = hex_to_dec(src_ip_hex3)
-    src_ip_dec4 = hex_to_dec(src_ip_hex4)
-
-    src_ip = str(src_ip_dec1) + "." + str(src_ip_dec2) + "." + str(src_ip_dec3) + "." + str(src_ip_dec4)
-
-    return src_ip
+def arp_get_src_ip_hex(packet_hex):
+    return packet_hex[28:36]
 
 
-def ipv4_get_dst_ip(packet_hex):
-    dst_ip_hex = get_dst_ip_hex(packet_hex)
+def arp_get_dst_ip_hex(packet_hex):
+    return packet_hex[48:56]
 
-    dst_ip_hex1 = dst_ip_hex[0:2]
-    dst_ip_hex2 = dst_ip_hex[2:4]
-    dst_ip_hex3 = dst_ip_hex[4:6]
-    dst_ip_hex4 = dst_ip_hex[6:8]
 
-    dst_ip_dec1 = hex_to_dec(dst_ip_hex1)
-    dst_ip_dec2 = hex_to_dec(dst_ip_hex2)
-    dst_ip_dec3 = hex_to_dec(dst_ip_hex3)
-    dst_ip_dec4 = hex_to_dec(dst_ip_hex4)
+def hex_to_ip(ip_hex):
+    ip_hex1 = ip_hex[0:2]
+    ip_hex2 = ip_hex[2:4]
+    ip_hex3 = ip_hex[4:6]
+    ip_hex4 = ip_hex[6:8]
 
-    dst_ip = str(dst_ip_dec1) + "." + str(dst_ip_dec2) + "." + str(dst_ip_dec3) + "." + str(dst_ip_dec4)
+    ip_dec1 = hex_to_dec(ip_hex1)
+    ip_dec2 = hex_to_dec(ip_hex2)
+    ip_dec3 = hex_to_dec(ip_hex3)
+    ip_dec4 = hex_to_dec(ip_hex4)
 
-    return dst_ip
+    ip = str(ip_dec1) + "." + str(ip_dec2) + "." + str(ip_dec3) + "." + str(ip_dec4)
+
+    return ip
 
 
 def ipv4_get_protocol(packet_hex):
@@ -160,6 +148,14 @@ class EtherType:
 
     def __init__(self, name):
         self.name = name
+
+
+class ARP(EtherType):
+    src_ip: str
+    dst_ip: str
+
+    def __init__(self):
+        super().__init__("ARP")
 
 
 class IPv4(EtherType):
@@ -297,6 +293,19 @@ class TCPCommunication:
     successful: bool = False
     frames = []
 
+    def __init__(self):
+        self.successful = False
+        self.frames = []
+
+
+class ARPCommunication:
+    hasReply: bool
+    frames = []
+
+    def __init__(self):
+        self.hasReply = False
+        self.frames = []
+
 
 def check_communication_start(flag, syn, syn_ack, ack):
     if syn is False:
@@ -331,6 +340,40 @@ def check_communication_end(flag, fin_ack1, ack1, fin_ack2, ack2):
             return "ack2"
 
     return "error"
+
+
+def get_arp_communications(communication_groups):
+    communications = []
+    unfinished_communication = ARPCommunication()
+
+    for key in communication_groups:
+        communication_group = communication_groups[key]
+        communication = ARPCommunication()
+
+        has_request = False
+        has_reply = False
+
+        for packet_info in communication_group:
+            if has_request is False and packet_info.dst_mac == "ffffffffffff":
+                has_request = True
+            elif has_reply is False and packet_info.dst_mac != "ffffffffffff":
+                has_reply = True
+
+            communication.frames.append(packet_info)
+
+            if has_request is True and has_reply is True:
+                has_request = False
+                has_reply = False
+
+                communications.append(communication)
+                communication = ARPCommunication()
+
+        if len(communication.frames) > 0:
+            unfinished_communication.frames.append(communication)
+
+    communications.insert(0, unfinished_communication)
+
+    return communications
 
 
 def get_tcp_communications(communication_groups):
@@ -552,6 +595,8 @@ def analyze_packet(packet_hex, packet_index):
 
     if ether_type == "IPv4":
         packet_info.ether_type = IPv4()
+    elif ether_type == "ARP":
+        packet_info.ether_type = ARP()
     elif ether_type is not None:
         packet_info.ether_type = EtherType(EtherType)
 
@@ -572,13 +617,24 @@ def analyze_packet(packet_hex, packet_index):
     # Ether type
     if packet_info.ether_type is not None:
         if isinstance(packet_info.ether_type, IPv4):
-            packet_info.ether_type.src_ip = ipv4_get_src_ip(remaining_packet_hex)
-            packet_info.ether_type.dst_ip = ipv4_get_dst_ip(remaining_packet_hex)
+            src_ip_hex = ipv4_get_src_ip_hex(remaining_packet_hex)
+            dst_ip_hex = ipv4_get_dst_ip_hex(remaining_packet_hex)
+
+            packet_info.ether_type.src_ip = hex_to_ip(src_ip_hex)
+            packet_info.ether_type.dst_ip = hex_to_ip(dst_ip_hex)
 
             transport_protocol_hex = ipv4_get_protocol(remaining_packet_hex)
             transport_protocol = identify_hex(transport_protocol_hex, ip_protocols_file)
 
             network_layer_length = 40
+        elif isinstance(packet_info.ether_type, ARP):
+            src_ip_hex = arp_get_src_ip_hex(remaining_packet_hex)
+            dst_ip_hex = arp_get_dst_ip_hex(remaining_packet_hex)
+
+            packet_info.ether_type.src_ip = hex_to_ip(src_ip_hex)
+            packet_info.ether_type.dst_ip = hex_to_ip(dst_ip_hex)
+
+            network_layer_length = 56
 
     # TRANSPORT LAYER ANALYSIS
 
@@ -643,12 +699,23 @@ def generate_dst_ip_dictionary(packets_info):
     return dst_ip_dict
 
 
-def filter_packets_info(application_protocol, packets_info):
+def filter_packets_info_by_application_protocol(application_protocol, packets_info):
     filtered_packets_info = []
 
     for packet_info in packets_info:
         if packet_info.application_protocol is not None:
             if packet_info.application_protocol.name == application_protocol:
+                filtered_packets_info.append(packet_info)
+
+    return filtered_packets_info
+
+
+def filter_packets_info_by_ether_type(ether_type, packets_info):
+    filtered_packets_info = []
+
+    for packet_info in packets_info:
+        if packet_info.ether_type is not None:
+            if packet_info.ether_type.name == ether_type:
                 filtered_packets_info.append(packet_info)
 
     return filtered_packets_info
@@ -668,6 +735,16 @@ def group_communications(packets_info):
                 communication_groups[(dst_socket, src_socket)].append(packet_info)
             else:
                 communication_groups[(src_socket, dst_socket)] = [packet_info]
+        elif isinstance(packet_info.ether_type, ARP):
+            src_ip = packet_info.ether_type.src_ip
+            dst_ip = packet_info.ether_type.dst_ip
+
+            if (src_ip, dst_ip) in communication_groups:
+                communication_groups[(src_ip, dst_ip)].append(packet_info)
+            elif (dst_ip, src_ip) in communication_groups:
+                communication_groups[(dst_ip, src_ip)].append(packet_info)
+            else:
+                communication_groups[(src_ip, dst_ip)] = [packet_info]
 
     return communication_groups
 
@@ -702,6 +779,36 @@ def output_tcp_frame(output_file, packet_info):
     if packet_info.transport_protocol is not None:
         output_file.write("zdrojový port: " + str(packet_info.transport_protocol.src_port) + "\n")
         output_file.write("cieľový port: " + str(packet_info.transport_protocol.dst_port) + "\n")
+
+    packet_frame = transform_frame(packet_info.frame)
+    for bytes_string in packet_frame:
+        output_file.write(bytes_string + "\n")
+
+    output_file.write("\n")
+
+
+def output_arp_frame(output_file, packet_info):
+    if packet_info.dst_mac == "ffffffffffff":
+        output_file.write("ARP-Request, IP adresa: " + packet_info.ether_type.dst_ip + " MAC adresa: ???\n")
+    else:
+        output_file.write(
+            "ARP-Reply, IP adresa: " + packet_info.ether_type.src_ip + " MAC adresa: " + packet_info.src_mac + "\n")
+
+    output_file.write("rámec " + str(packet_info.index) + "\n")
+
+    output_file.write("dĺžka rámca poskytnutá pcap API - " + str(packet_info.length) + " B\n")
+    output_file.write("dĺžka rámca poskytnutá po médiu - " + str(packet_info.real_length) + " B\n")
+
+    output_file.write(packet_info.get_frame_type() + "\n")
+
+    if packet_info.sap is not None:
+        output_file.write(packet_info.sap.name + "\n")
+
+    if packet_info.ether_type is not None:
+        output_file.write(packet_info.ether_type.name + "\n")
+
+    output_file.write("Zdrojová MAC adresa: " + transform_bytes(packet_info.src_mac) + "\n")
+    output_file.write("Cieľová MAC adresa: " + transform_bytes(packet_info.dst_mac) + "\n")
 
     packet_frame = transform_frame(packet_info.frame)
     for bytes_string in packet_frame:
@@ -751,12 +858,44 @@ def output_tcp_communications(output_file_name, tcp_communications):
     print("Výstupný súbor \"" + output_file_name + "\" bol vygenerovaný.")
 
 
+def output_arp_communications(arp_communications):
+    output_file_name = "Výstup4i.txt"
+    output_file = open(output_file_name, "w", encoding="utf-8")
+
+    for communication_index in range(1, len(arp_communications)):
+        arp_communication = arp_communications[communication_index]
+
+        output_file.write("Komunikácia č. " + str(communication_index) + "\n")
+        output_file.write("\n")
+
+        for packet_info in arp_communication.frames:
+            output_arp_frame(output_file, packet_info)
+
+    if len(arp_communications[0].frames) > 0:
+        output_file.write("Komunikácie bez odpovede:\n")
+        output_file.write("\n")
+
+        for packet_info in arp_communications[0].frames:
+            output_arp_frame(output_file, packet_info)
+
+    output_file.close()
+    print("Výstupný súbor \"" + output_file_name + "\" bol vygenerovaný.")
+
+
 def analyze_tcp_communications(output_file_name, application_protocol, packets_info):
-    filtered_packets = filter_packets_info(application_protocol, packets_info)
+    filtered_packets = filter_packets_info_by_application_protocol(application_protocol, packets_info)
     communication_groups = group_communications(filtered_packets)
     tcp_communications = get_tcp_communications(communication_groups)
 
     output_tcp_communications(output_file_name, tcp_communications)
+
+
+def analyze_arp_communications(packets_info):
+    filtered_packets = filter_packets_info_by_ether_type("ARP", packets_info)
+    communication_groups = group_communications(filtered_packets)
+    arp_communications = get_arp_communications(communication_groups)
+
+    output_arp_communications(arp_communications)
 
 
 def analyze_packets(packets):
@@ -803,3 +942,9 @@ elif desired_output == "5":
     analyze_tcp_communications("Výstup4e.txt", "ftp-control", packetsInfo)
 elif desired_output == "6":
     analyze_tcp_communications("Výstup4f.txt", "ftp-data", packetsInfo)
+elif desired_output == "7":
+    print()
+elif desired_output == "8":
+    print()
+elif desired_output == "9":
+    analyze_arp_communications(packetsInfo)

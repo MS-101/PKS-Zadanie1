@@ -1,0 +1,81 @@
+Komunikácia č. 1
+
+ARP-Request, IP adresa: 192.168.1.1 MAC adresa: ???
+rámec 1
+dĺžka rámca poskytnutá pcap API - 42 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+ARP
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: ff ff ff ff ff ff
+ff ff ff ff ff ff 00 14 38 06 e0 93 08 06 00 01
+08 00 06 04 00 01 00 14 38 06 e0 93 c0 a8 01 21
+00 00 00 00 00 00 c0 a8 01 01
+
+ARP-Reply, IP adresa: 192.168.1.1 MAC adresa: 0002cfaba24c
+rámec 2
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+ARP
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 06 00 01
+08 00 06 04 00 02 00 02 cf ab a2 4c c0 a8 01 01
+00 14 38 06 e0 93 c0 a8 01 21 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00
+
+Komunikácia č. 2
+
+ARP-Request, IP adresa: 192.168.1.1 MAC adresa: ???
+rámec 1026
+dĺžka rámca poskytnutá pcap API - 42 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+ARP
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: ff ff ff ff ff ff
+ff ff ff ff ff ff 00 14 38 06 e0 93 08 06 00 01
+08 00 06 04 00 01 00 14 38 06 e0 93 c0 a8 01 21
+00 00 00 00 00 00 c0 a8 01 01
+
+ARP-Reply, IP adresa: 192.168.1.1 MAC adresa: 0002cfaba24c
+rámec 1027
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+ARP
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: 00 14 38 06 e0 93
+00 14 38 06 e0 93 00 02 cf ab a2 4c 08 06 00 01
+08 00 06 04 00 02 00 02 cf ab a2 4c c0 a8 01 01
+00 14 38 06 e0 93 c0 a8 01 21 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00
+
+Komunikácia č. 3
+
+ARP-Request, IP adresa: 192.168.1.33 MAC adresa: ???
+rámec 1029
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+ARP
+Zdrojová MAC adresa: 00 02 cf ab a2 4c
+Cieľová MAC adresa: ff ff ff ff ff ff
+ff ff ff ff ff ff 00 02 cf ab a2 4c 08 06 00 01
+08 00 06 04 00 01 00 02 cf ab a2 4c c0 a8 01 01
+00 00 00 00 00 00 c0 a8 01 21 00 00 00 00 00 00
+00 00 00 00 00 00 00 00 00 00 00 00
+
+ARP-Reply, IP adresa: 192.168.1.33 MAC adresa: 00143806e093
+rámec 1030
+dĺžka rámca poskytnutá pcap API - 42 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+ARP
+Zdrojová MAC adresa: 00 14 38 06 e0 93
+Cieľová MAC adresa: 00 02 cf ab a2 4c
+00 02 cf ab a2 4c 00 14 38 06 e0 93 08 06 00 01
+08 00 06 04 00 02 00 14 38 06 e0 93 c0 a8 01 21
+00 02 cf ab a2 4c c0 a8 01 01
+
