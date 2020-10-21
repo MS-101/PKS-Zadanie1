@@ -392,8 +392,9 @@ def get_arp_communications(communication_groups):
                 communications.append(communication)
                 communication = ARPCommunication()
 
-        if len(communication.frames) > 0:
-            unfinished_communication.frames.append(communication)
+
+        for packet_info in communication.frames:
+            unfinished_communication.frames.append(packet_info)
 
     communications.insert(0, unfinished_communication)
 
@@ -513,14 +514,14 @@ def get_tcp_communications(communication_groups):
                     communications.append(communication)
                     communication = TCPCommunication()
 
-        communications.append(communication)
+        if len(communication.frames) > 0:
+            communications.append(communication)
 
     return communications
 
 
-def output_standard(packets_info, dst_ip_dict):
-    output_file_name = "Výstup1-3.txt"
-    output_file = open(output_file_name, "w", encoding="utf-8")
+def output_standard(output_file_name, packets_info, dst_ip_dict):
+    output_file = open("Output/" + output_file_name, "w", encoding="utf-8")
 
     for packet_info in packets_info:
         output_file.write("rámec " + str(packet_info.index) + "\n")
@@ -552,19 +553,24 @@ def output_standard(packets_info, dst_ip_dict):
 
         output_file.write("\n")
 
-    output_file.write("IP adresy vysielajúcich uzlov:\n")
-    for dst_ip in dst_ip_dict:
-        output_file.write(dst_ip + "\n")
+    if dst_ip_dict is not None:
+        output_file.write("IP adresy vysielajúcich uzlov:\n")
+        for dst_ip in dst_ip_dict:
+            output_file.write(dst_ip + "\n")
 
-    output_file.write("\n")
+        output_file.write("\n")
 
-    output_file.write("Adresa uzla s najväčším počtom paketov:\n")
-    if dst_ip_dict:
-        max_dst_ip = max(dst_ip_dict, key=dst_ip_dict.get)
-        output_file.write(max_dst_ip + "\n")
+        output_file.write("Adresa uzla s najväčším počtom paketov:\n")
+        if dst_ip_dict:
+            max_dst_ip = max(dst_ip_dict, key=dst_ip_dict.get)
+            output_file.write(max_dst_ip + "\n")
 
     output_file.close()
     print("Výstupný súbor \"" + output_file_name + "\" bol vygenerovaný.")
+
+
+starting_tftp = []
+started_tftp = []
 
 
 def analyze_packet(packet_hex, packet_index):
@@ -605,7 +611,7 @@ def analyze_packet(packet_hex, packet_index):
             packet_info.sap.name = "IPX"
 
             link_layer_length = 34
-        elif packet_info.sap.name == "SNAP":
+        elif sap == "SNAP":
             packet_info.set_ieee_snap()
 
             ether_type_hex = data_length_hex
@@ -682,25 +688,34 @@ def analyze_packet(packet_hex, packet_index):
 
             if src_port is not None:
                 packet_info.application_protocol = ApplicationProtocol(src_port)
-
-            if dst_port is not None:
+            elif dst_port is not None:
                 packet_info.application_protocol = ApplicationProtocol(dst_port)
         elif transport_protocol == "UDP":
             src_port_hex = tcp_get_src_port_hex(remaining_packet_hex)
             src_port_int = int(src_port_hex, 16)
-            src_port = identify_hex(src_port_hex, tcp_file)
+            src_port = identify_hex(src_port_hex, udp_file)
 
             dst_port_hex = tcp_get_dst_port_hex(remaining_packet_hex)
             dst_port_int = int(dst_port_hex, 16)
-            dst_port = identify_hex(dst_port_hex, tcp_file)
+            dst_port = identify_hex(dst_port_hex, udp_file)
 
             packet_info.transport_protocol = UDP(src_port_int, dst_port_int)
 
             if src_port is not None:
                 packet_info.application_protocol = ApplicationProtocol(src_port)
-
-            if dst_port is not None:
+            elif dst_port is not None:
                 packet_info.application_protocol = ApplicationProtocol(dst_port)
+
+                # tftp analysis
+                if packet_info.application_protocol.name == "tftp":
+                    starting_tftp.append(src_port)
+            elif dst_port in starting_tftp:
+                starting_tftp.remove(dst_port)
+                started_tftp.append((src_port, dst_port))
+
+                packet_info.application_protocol = ApplicationProtocol("tftp")
+            elif (src_port, dst_port) in started_tftp or (dst_port, src_port) in started_tftp:
+                packet_info.application_protocol = ApplicationProtocol("tftp")
         elif transport_protocol == "ICMP":
             type_hex = icmp_get_type_hex(remaining_packet_hex)
             type_str = identify_hex(type_hex, icmp_file)
@@ -861,7 +876,7 @@ def output_arp_frame(output_file, packet_info):
 
 
 def output_tcp_communications(output_file_name, tcp_communications):
-    output_file = open(output_file_name, "w", encoding="utf-8")
+    output_file = open("Output/" + output_file_name, "w", encoding="utf-8")
 
     communication_index = 1
 
@@ -870,12 +885,12 @@ def output_tcp_communications(output_file_name, tcp_communications):
 
     for tcp_communication in tcp_communications:
         if found_success is False and tcp_communication.successful:
-            output_file.write("Komunikácia č. " + str(communication_index) + " - úspešná\n")
+            output_file.write("Komunikácia č. " + str(communication_index) + " - úplná\n")
             output_file.write("\n")
 
             found_success = True
-        elif found_fail is False and tcp_communication.successful:
-            output_file.write("Komunikácia č. " + str(communication_index) + " - neúspešná\n")
+        elif found_fail is False and not tcp_communication.successful:
+            output_file.write("Komunikácia č. " + str(communication_index) + " - neúplná\n")
             output_file.write("\n")
 
             found_fail = True
@@ -883,11 +898,25 @@ def output_tcp_communications(output_file_name, tcp_communications):
             continue
 
         if len(tcp_communication.frames) < 20:
+            output_file.write("Komunikácia je vypísaná celá (spolu "
+                              + str(len(tcp_communication.frames)) + " rámcov)\n")
+            output_file.write("\n")
+
             for packet_info in tcp_communication.frames:
                 output_tcp_frame(output_file, packet_info)
         else:
+            output_file.write("Komunikácia nie je vypísaná celá (spolu "
+                              + str(len(tcp_communication.frames)) + " rámcov)\n")
+            output_file.write("\n")
+
+            output_file.write("Prvých 10 rámcov:\n")
+            output_file.write("\n")
+
             for packet_info in tcp_communication.frames[:10]:
                 output_tcp_frame(output_file, packet_info)
+
+            output_file.write("Posledných 10 rámcov:\n")
+            output_file.write("\n")
 
             for packet_info in tcp_communication.frames[-10:]:
                 output_tcp_frame(output_file, packet_info)
@@ -897,13 +926,19 @@ def output_tcp_communications(output_file_name, tcp_communications):
 
         communication_index += 1
 
+    if found_success is False:
+        output_file.write("Úplná komunikácia nebol nájdená.\n")
+
+    if found_fail is False:
+        output_file.write("Neúplná komunikácia nebol nájdená.\n")
+
     output_file.close()
     print("Výstupný súbor \"" + output_file_name + "\" bol vygenerovaný.")
 
 
 def output_arp_communications(arp_communications):
     output_file_name = "Výstup4i.txt"
-    output_file = open(output_file_name, "w", encoding="utf-8")
+    output_file = open("Output/" + output_file_name, "w", encoding="utf-8")
 
     for communication_index in range(1, len(arp_communications)):
         arp_communication = arp_communications[communication_index]
@@ -918,7 +953,9 @@ def output_arp_communications(arp_communications):
         output_file.write("Komunikácie bez odpovede:\n")
         output_file.write("\n")
 
-        for packet_info in arp_communications[0].frames:
+        remaining_communication = arp_communications[0]
+
+        for packet_info in remaining_communication.frames:
             output_arp_frame(output_file, packet_info)
 
     output_file.close()
@@ -927,7 +964,7 @@ def output_arp_communications(arp_communications):
 
 def output_icmp_communications(filtered_packets):
     output_file_name = "Výstup4h.txt"
-    output_file = open(output_file_name, "w", encoding="utf-8")
+    output_file = open("Output/" + output_file_name, "w", encoding="utf-8")
 
     for packet_info in filtered_packets:
         output_file.write("rámec " + str(packet_info.index) + "\n")
@@ -969,9 +1006,56 @@ def output_icmp_communications(filtered_packets):
     print("Výstupný súbor \"" + output_file_name + "\" bol vygenerovaný.")
 
 
+def output_tftp_communications(filtered_packets):
+    output_file_name = "Výstup4g.txt"
+    output_file = open("Output/" + output_file_name, "w", encoding="utf-8")
+
+    for packet_info in filtered_packets:
+        output_file.write("rámec " + str(packet_info.index) + "\n")
+
+        output_file.write("dĺžka rámca poskytnutá pcap API - " + str(packet_info.length) + " B\n")
+        output_file.write("dĺžka rámca poskytnutá po médiu - " + str(packet_info.real_length) + " B\n")
+
+        output_file.write(packet_info.get_frame_type() + "\n")
+
+        output_file.write("Zdrojová MAC adresa: " + transform_bytes(packet_info.src_mac) + "\n")
+        output_file.write("Cieľová MAC adresa: " + transform_bytes(packet_info.dst_mac) + "\n")
+
+        if packet_info.sap is not None:
+            output_file.write(packet_info.sap.name + "\n")
+
+        if packet_info.ether_type is not None:
+            output_file.write(packet_info.ether_type.name + "\n")
+
+            if isinstance(packet_info.ether_type, IPv4):
+                output_file.write("zdrojová IP adresa: " + packet_info.ether_type.src_ip + "\n")
+                output_file.write("cieľová IP adresa: " + packet_info.ether_type.dst_ip + "\n")
+
+        if packet_info.transport_protocol is not None:
+            output_file.write(packet_info.transport_protocol.name + "\n")
+
+        if packet_info.application_protocol is not None:
+            output_file.write(packet_info.application_protocol.name + "\n")
+
+        if packet_info.transport_protocol is not None:
+            if isinstance(packet_info.transport_protocol, TCP) or isinstance(packet_info.transport_protocol, UDP):
+                output_file.write("zdrojový port: " + str(packet_info.transport_protocol.src_port) + "\n")
+                output_file.write("cieľový port: " + str(packet_info.transport_protocol.dst_port) + "\n")
+
+        packet_frame = transform_frame(packet_info.frame)
+        for bytes_string in packet_frame:
+            output_file.write(bytes_string + "\n")
+
+        output_file.write("\n")
+
+    output_file.close()
+    print("Výstupný súbor \"" + output_file_name + "\" bol vygenerovaný.")
+
+
 def analyze_tcp_communications(output_file_name, application_protocol, packets_info):
     filtered_packets = filter_packets_info_by_application_protocol(application_protocol, packets_info)
     communication_groups = group_communications(filtered_packets)
+
     tcp_communications = get_tcp_communications(communication_groups)
 
     output_tcp_communications(output_file_name, tcp_communications)
@@ -991,6 +1075,12 @@ def analyze_icmp_communications(packets_info):
     output_icmp_communications(filtered_packets)
 
 
+def analyze_tftp_communications(packets_info):
+    filtered_packets = filter_packets_info_by_application_protocol("tftp", packets_info)
+
+    output_tftp_communications(filtered_packets)
+
+
 def analyze_packets(packets):
     packets_info = []
     packet_index = 0
@@ -1003,6 +1093,9 @@ def analyze_packets(packets):
         packet_info = analyze_packet(packet_hex, packet_index)
         packets_info.append(packet_info)
 
+    starting_tftp = []
+    started_tftp = []
+
     return packets_info
 
 
@@ -1010,7 +1103,7 @@ while True:
     input_file_name = input("Názov čítaného súboru (s príponou): ")
 
     try:
-        my_packets = rdpcap("PCAP/" + input_file_name)
+        my_packets = rdpcap("Input/" + input_file_name)
         break
     except IOError:
         print("Zadaný súbor neexistuje.")
@@ -1018,11 +1111,10 @@ while True:
 
 packetsInfo = analyze_packets(my_packets)
 
-desired_output = input("Kód výstupného súboru (0-9): ")
-
+desired_output = input("Kód výstupného súboru (pre info si prečítajte README.txt): ")
 if desired_output == "0":
     dst_ip_dictionary = generate_dst_ip_dictionary(packetsInfo)
-    output_standard(packetsInfo, dst_ip_dictionary)
+    output_standard("Výstup1-3.txt", packetsInfo, dst_ip_dictionary)
 elif desired_output == "1":
     analyze_tcp_communications("Výstup4a.txt", "http", packetsInfo)
 elif desired_output == "2":
@@ -1036,7 +1128,7 @@ elif desired_output == "5":
 elif desired_output == "6":
     analyze_tcp_communications("Výstup4f.txt", "ftp-data", packetsInfo)
 elif desired_output == "7":
-    print()
+    analyze_tftp_communications(packetsInfo)
 elif desired_output == "8":
     analyze_icmp_communications(packetsInfo)
 elif desired_output == "9":
