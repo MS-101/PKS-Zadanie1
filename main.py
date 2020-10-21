@@ -7,6 +7,7 @@ ip_protocols_file = "IP_Protocols.txt"
 tcp_file = "TCP_Ports.txt"
 udp_file = "UDP_Ports.txt"
 ether_types_file = "EtherTypes.txt"
+icmp_file = "ICMP_Types.txt"
 
 
 def transform_bytes(old_string):
@@ -136,6 +137,10 @@ def udp_get_dst_port_hex(packet_hex):
     return packet_hex[4:8]
 
 
+def icmp_get_type_hex(packet_hex):
+    return packet_hex[0:2]
+
+
 class Sap:
     name: str
 
@@ -203,6 +208,15 @@ class UDP(TransportProtocol):
 
         self.src_port = src_port
         self.dst_port = dst_port
+
+
+class ICMP(TransportProtocol):
+    type: str
+
+    def __init__(self, type):
+        super().__init__("ICMP")
+
+        self.type = type
 
 
 class ApplicationProtocol:
@@ -353,10 +367,17 @@ def get_arp_communications(communication_groups):
         has_request = False
         has_reply = False
 
+        request_ip = ""
+        reply_ip = ""
+
         for packet_info in communication_group:
             if has_request is False and packet_info.dst_mac == "ffffffffffff":
                 has_request = True
-            elif has_reply is False and packet_info.dst_mac != "ffffffffffff":
+
+                request_ip = packet_info.ether_type.src_ip
+                reply_ip = packet_info.ether_type.dst_ip
+            elif has_reply is False and packet_info.dst_mac != "ffffffffffff" \
+                    and packet_info.ether_type.src_ip == reply_ip:
                 has_reply = True
 
             communication.frames.append(packet_info)
@@ -364,6 +385,9 @@ def get_arp_communications(communication_groups):
             if has_request is True and has_reply is True:
                 has_request = False
                 has_reply = False
+
+                request_ip = ""
+                reply_ip = ""
 
                 communications.append(communication)
                 communication = ARPCommunication()
@@ -677,6 +701,13 @@ def analyze_packet(packet_hex, packet_index):
 
             if dst_port is not None:
                 packet_info.application_protocol = ApplicationProtocol(dst_port)
+        elif transport_protocol == "ICMP":
+            type_hex = icmp_get_type_hex(remaining_packet_hex)
+            type_str = identify_hex(type_hex, icmp_file)
+
+            packet_info.transport_protocol = ICMP(type_str)
+        else:
+            packet_info.transport_protocol = TransportProtocol(transport_protocol)
 
     packet_info.frame = packet_hex
 
@@ -705,6 +736,17 @@ def filter_packets_info_by_application_protocol(application_protocol, packets_in
     for packet_info in packets_info:
         if packet_info.application_protocol is not None:
             if packet_info.application_protocol.name == application_protocol:
+                filtered_packets_info.append(packet_info)
+
+    return filtered_packets_info
+
+
+def filter_packets_info_by_transport_protocol(transport_protocol, packets_info):
+    filtered_packets_info = []
+
+    for packet_info in packets_info:
+        if packet_info.transport_protocol is not None:
+            if packet_info.transport_protocol.name == transport_protocol:
                 filtered_packets_info.append(packet_info)
 
     return filtered_packets_info
@@ -777,8 +819,9 @@ def output_tcp_frame(output_file, packet_info):
         output_file.write(packet_info.application_protocol.name + "\n")
 
     if packet_info.transport_protocol is not None:
-        output_file.write("zdrojový port: " + str(packet_info.transport_protocol.src_port) + "\n")
-        output_file.write("cieľový port: " + str(packet_info.transport_protocol.dst_port) + "\n")
+        if isinstance(packet_info.transport_protocol, TCP) or isinstance(packet_info.transport_protocol, UDP):
+            output_file.write("zdrojový port: " + str(packet_info.transport_protocol.src_port) + "\n")
+            output_file.write("cieľový port: " + str(packet_info.transport_protocol.dst_port) + "\n")
 
     packet_frame = transform_frame(packet_info.frame)
     for bytes_string in packet_frame:
@@ -882,6 +925,50 @@ def output_arp_communications(arp_communications):
     print("Výstupný súbor \"" + output_file_name + "\" bol vygenerovaný.")
 
 
+def output_icmp_communications(filtered_packets):
+    output_file_name = "Výstup4h.txt"
+    output_file = open(output_file_name, "w", encoding="utf-8")
+
+    for packet_info in filtered_packets:
+        output_file.write("rámec " + str(packet_info.index) + "\n")
+
+        output_file.write("dĺžka rámca poskytnutá pcap API - " + str(packet_info.length) + " B\n")
+        output_file.write("dĺžka rámca poskytnutá po médiu - " + str(packet_info.real_length) + " B\n")
+
+        output_file.write(packet_info.get_frame_type() + "\n")
+
+        output_file.write("Zdrojová MAC adresa: " + transform_bytes(packet_info.src_mac) + "\n")
+        output_file.write("Cieľová MAC adresa: " + transform_bytes(packet_info.dst_mac) + "\n")
+
+        if packet_info.sap is not None:
+            output_file.write(packet_info.sap.name + "\n")
+
+        if packet_info.ether_type is not None:
+            output_file.write(packet_info.ether_type.name + "\n")
+
+            if isinstance(packet_info.ether_type, IPv4):
+                output_file.write("zdrojová IP adresa: " + packet_info.ether_type.src_ip + "\n")
+                output_file.write("cieľová IP adresa: " + packet_info.ether_type.dst_ip + "\n")
+
+        if packet_info.transport_protocol is not None:
+            output_file.write(packet_info.transport_protocol.name + "\n")
+
+            if isinstance(packet_info.transport_protocol, ICMP):
+                if packet_info.transport_protocol.type is not None:
+                    output_file.write(packet_info.transport_protocol.type + "\n")
+                else:
+                    output_file.write("undefined type\n")
+
+        packet_frame = transform_frame(packet_info.frame)
+        for bytes_string in packet_frame:
+            output_file.write(bytes_string + "\n")
+
+        output_file.write("\n")
+
+    output_file.close()
+    print("Výstupný súbor \"" + output_file_name + "\" bol vygenerovaný.")
+
+
 def analyze_tcp_communications(output_file_name, application_protocol, packets_info):
     filtered_packets = filter_packets_info_by_application_protocol(application_protocol, packets_info)
     communication_groups = group_communications(filtered_packets)
@@ -896,6 +983,12 @@ def analyze_arp_communications(packets_info):
     arp_communications = get_arp_communications(communication_groups)
 
     output_arp_communications(arp_communications)
+
+
+def analyze_icmp_communications(packets_info):
+    filtered_packets = filter_packets_info_by_transport_protocol("ICMP", packets_info)
+
+    output_icmp_communications(filtered_packets)
 
 
 def analyze_packets(packets):
@@ -945,6 +1038,6 @@ elif desired_output == "6":
 elif desired_output == "7":
     print()
 elif desired_output == "8":
-    print()
+    analyze_icmp_communications(packetsInfo)
 elif desired_output == "9":
     analyze_arp_communications(packetsInfo)

@@ -1,15 +1,15 @@
-00 Null SAP
-02 LLC Sublayer Management / Individual
-03 LLC Sublayer Management / Group
-06 IP (DoD Internet Protocol)
-0E PROWAY (IEC 955) Network Management, Maintenance and Installation
-42 BPDU (Bridge PDU / 802.1 Spanning Tree)
-4E MMS (Manufacturing Message Service) EIA-RS 511
-5E ISI IP
-7E X.25 PLP (ISO 8208)
-8E PROWAY (IEC 955) Active Station List Maintenance
-AA SNAP (Sub-Network Access Protocol / non-IEEE SAPs)
-E0 IPX (Novell NetWare)
-F4 LAN Management
-FE ISO Network Layer Protocols
-FF Global DSAP
+00 Null_SAP
+02 LLC_Sublayer Management/Individual
+03 LLC_Sublayer Management/Group
+06 IP_(DoD_Internet_Protocol)
+0e PROWAY_(IEC_955)_Network_Management,_Maintenance_and_Installation
+42 BPDU_(Bridge_PDU/802.1_Spanning Tree)
+4e MMS_(Manufacturing_Message_Service)_EIA-RS_511
+5e ISI_IP
+7e X.25_PLP_(ISO_8208)
+8e PROWAY_(IEC_955)_Active_Station_List_Maintenance
+aa SNAP_(Sub-Network_Access_Protocol/non-IEEE_SAPs)
+e0 IPX_(Novell NetWare)
+f4 LAN_Management
+fe ISO_Network_Layer_Protocols
+ff Global_DSAP

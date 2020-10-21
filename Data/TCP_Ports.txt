@@ -6,15 +6,15 @@
 0017 telnet
 0019 smtp
 0035 domain
-004F finger
+004f finger
 0050 http
-006E pop3
-006F sunrpc
+006r pop3
+006f sunrpc
 0077 nntp
-008B netbios-ssn
-008F imap
-00B3 bgp
+008b netbios-ssn
+008f imap
+00b3 bgp
 0185 ldap
-01BB https (ssl)
-01BD microsoft-ds
+01bb https_(ssl)
+01bd microsoft-ds
 0438 socks
