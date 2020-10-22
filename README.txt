@@ -18,3 +18,4 @@ Kódy výstupného súboru
 7 - Bod 4g => "Výstup4g.txt"
 8 - Bod 4h => "Výstup4h.txt"
 9 - Bod 4i => "Výstup4i.txt"
+10 - Doimplementácia => "Doimplementácia.txt"

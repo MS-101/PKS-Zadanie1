@@ -1107,6 +1107,61 @@ def analyze_packets(packets):
     return packets_info
 
 
+def output_pim_communications(filtered_packets):
+    output_file_name = "Doimplementácia.txt"
+    output_file = open("Output/" + output_file_name, "w", encoding="utf-8")
+
+    output_file.write("počet rámcov PIM - " + str(len(filtered_packets)) + "\n")
+    output_file.write("\n")
+
+    for packet_info in filtered_packets:
+        output_file.write("rámec " + str(packet_info.index) + "\n")
+
+        output_file.write("dĺžka rámca poskytnutá pcap API - " + str(packet_info.length) + " B\n")
+        output_file.write("dĺžka rámca poskytnutá po médiu - " + str(packet_info.real_length) + " B\n")
+
+        output_file.write(packet_info.get_frame_type() + "\n")
+
+        output_file.write("Zdrojová MAC adresa: " + transform_bytes(packet_info.src_mac) + "\n")
+        output_file.write("Cieľová MAC adresa: " + transform_bytes(packet_info.dst_mac) + "\n")
+
+        if packet_info.sap is not None:
+            output_file.write(packet_info.sap.name + "\n")
+
+        if packet_info.ether_type is not None:
+            output_file.write(packet_info.ether_type.name + "\n")
+
+            if isinstance(packet_info.ether_type, IPv4):
+                output_file.write("zdrojová IP adresa: " + packet_info.ether_type.src_ip + "\n")
+                output_file.write("cieľová IP adresa: " + packet_info.ether_type.dst_ip + "\n")
+
+        if packet_info.transport_protocol is not None:
+            output_file.write(packet_info.transport_protocol.name + "\n")
+
+        if packet_info.application_protocol is not None:
+            output_file.write(packet_info.application_protocol.name + "\n")
+
+        if packet_info.transport_protocol is not None:
+            if isinstance(packet_info.transport_protocol, TCP) or isinstance(packet_info.transport_protocol, UDP):
+                output_file.write("zdrojový port: " + str(packet_info.transport_protocol.src_port) + "\n")
+                output_file.write("cieľový port: " + str(packet_info.transport_protocol.dst_port) + "\n")
+
+        packet_frame = transform_frame(packet_info.frame)
+        for bytes_string in packet_frame:
+            output_file.write(bytes_string + "\n")
+
+        output_file.write("\n")
+
+    output_file.close()
+    print("Výstupný súbor \"" + output_file_name + "\" bol vygenerovaný.")
+
+
+def analyze_pim_communications(packets_info):
+    filtered_packets = filter_packets_info_by_transport_protocol("PIM", packets_info)
+
+    output_pim_communications(filtered_packets)
+
+
 while True:
     input_file_name = input("Názov čítaného súboru (s príponou): ")
 
@@ -1141,3 +1196,5 @@ elif desired_output == "8":
     analyze_icmp_communications(packetsInfo)
 elif desired_output == "9":
     analyze_arp_communications(packetsInfo)
+elif desired_output == "10":
+    analyze_pim_communications(packetsInfo)

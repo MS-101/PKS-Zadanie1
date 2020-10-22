@@ -1,0 +1,244 @@
+počet rámcov PIM - 16
+
+rámec 582
+dĺžka rámca poskytnutá pcap API - 72 B
+dĺžka rámca poskytnutá po médiu - 76 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 3a 4b 28 00 00 01 67 69 b7 93 af 90 01 e0 00
+00 0d 20 00 cc ce 00 01 00 02 00 69 00 02 00 04
+00 64 01 90 00 13 00 04 00 00 00 01 00 14 00 04
+93 84 7d 00 00 16 00 00
+
+rámec 649
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 24 97 00 00 01 67 90 54 93 af 90 01 e0 00
+00 0d 25 00 59 73 01 00 00 20 ef ff ff fa 01 00
+0a 5b 05 15 80 00 00 00 00 00 00 01
+
+rámec 674
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 05 da 00 00 01 67 af 11 93 af 90 01 e0 00
+00 0d 25 00 59 73 01 00 00 20 ef ff ff fa 01 00
+0a 5b 05 15 80 00 00 00 00 00 00 01
+
+rámec 677
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 49 bd 00 00 01 67 6b 2e 93 af 90 01 e0 00
+00 0d 25 00 59 73 01 00 00 20 ef ff ff fa 01 00
+0a 5b 05 15 80 00 00 00 00 00 00 01
+
+rámec 681
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 2a 83 00 00 01 67 8a 68 93 af 90 01 e0 00
+00 0d 25 00 59 73 01 00 00 20 ef ff ff fa 01 00
+0a 5b 05 15 80 00 00 00 00 00 00 01
+
+rámec 723
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 48 e8 00 00 01 67 6c 03 93 af 90 01 e0 00
+00 0d 25 00 6d 43 01 00 00 20 e0 00 01 3c 01 00
+0a 5b 00 03 80 00 00 00 00 00 00 01
+
+rámec 757
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 1a 78 00 00 01 67 9a 73 93 af 90 01 e0 00
+00 0d 25 00 5e 85 01 00 00 20 ef ff ff fa 01 00
+0a 5b 00 03 80 00 00 00 00 00 00 01
+
+rámec 791
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 07 aa 00 00 01 67 ad 41 93 af 90 01 e0 00
+00 0d 25 00 5c 7d 01 00 00 20 ef ff ff fa 01 00
+0a 5b 02 0b 80 00 00 00 00 00 00 01
+
+rámec 794
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 1f 49 00 00 01 67 95 a2 93 af 90 01 e0 00
+00 0d 25 00 5c 7d 01 00 00 20 ef ff ff fa 01 00
+0a 5b 02 0b 80 00 00 00 00 00 00 01
+
+rámec 796
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 0a 3c 00 00 01 67 aa af 93 af 90 01 e0 00
+00 0d 25 00 5c 7d 01 00 00 20 ef ff ff fa 01 00
+0a 5b 02 0b 80 00 00 00 00 00 00 01
+
+rámec 799
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 0a 56 00 00 01 67 aa 95 93 af 90 01 e0 00
+00 0d 25 00 5c 7d 01 00 00 20 ef ff ff fa 01 00
+0a 5b 02 0b 80 00 00 00 00 00 00 01
+
+rámec 821
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 24 c5 00 00 01 67 90 26 93 af 90 01 e0 00
+00 0d 25 00 5c 7d 01 00 00 20 ef ff ff fa 01 00
+0a 5b 02 0b 80 00 00 00 00 00 00 01
+
+rámec 823
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 36 0c 00 00 01 67 7e df 93 af 90 01 e0 00
+00 0d 25 00 5c 7d 01 00 00 20 ef ff ff fa 01 00
+0a 5b 02 0b 80 00 00 00 00 00 00 01
+
+rámec 827
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 3f da 00 00 01 67 75 11 93 af 90 01 e0 00
+00 0d 25 00 5c 7d 01 00 00 20 ef ff ff fa 01 00
+0a 5b 02 0b 80 00 00 00 00 00 00 01
+
+rámec 829
+dĺžka rámca poskytnutá pcap API - 60 B
+dĺžka rámca poskytnutá po médiu - 64 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 2e 6f 6f 00 00 01 67 45 7c 93 af 90 01 e0 00
+00 0d 25 00 5c 7d 01 00 00 20 ef ff ff fa 01 00
+0a 5b 02 0b 80 00 00 00 00 00 00 01
+
+rámec 1352
+dĺžka rámca poskytnutá pcap API - 72 B
+dĺžka rámca poskytnutá po médiu - 76 B
+Ethernet II
+Zdrojová MAC adresa: 84 b8 02 66 72 34
+Cieľová MAC adresa: 01 00 5e 00 00 0d
+IPv4
+zdrojová IP adresa: 147.175.144.1
+cieľová IP adresa: 224.0.0.13
+PIM
+01 00 5e 00 00 0d 84 b8 02 66 72 34 08 00 45 c0
+00 3a 78 e2 00 00 01 67 3b fd 93 af 90 01 e0 00
+00 0d 20 00 cc ce 00 01 00 02 00 69 00 02 00 04
+00 64 01 90 00 13 00 04 00 00 00 01 00 14 00 04
+93 84 7d 00 00 16 00 00
+
